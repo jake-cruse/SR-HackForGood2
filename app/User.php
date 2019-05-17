@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Topic;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,5 +40,16 @@ class User extends Authenticatable
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function topic()
+    {
+        return $this->belongsTo("App\Topic");   
+    }
+
+    public function voteFor(Topic $topic)
+    {
+        $this->topic_id = $topic->id;
+        $this->save();
     }
 }
