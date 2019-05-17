@@ -36,4 +36,36 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        $field = $this->field($request);
+
+        return [
+            $field => $request->get($this->username()),
+            'password' => $request->get('password'),
+        ];
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $messages = ["username.exists" => 'The account you are trying to login is not registered or it has been disabled.'];
+
+        $this->validate($request, [
+            'username' => "required|exists:users,username",
+            'password' => 'required',
+        ], $messages);
+    }
 }
