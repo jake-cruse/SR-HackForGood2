@@ -10,6 +10,9 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
+use App\User;
+use App\Message;
+
 class MessageSent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
