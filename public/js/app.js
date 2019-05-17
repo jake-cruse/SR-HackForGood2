@@ -1776,7 +1776,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user'],
+  props: ['user', 'thread_id'],
   data: function data() {
     return {
       newMessage: ''
@@ -1786,7 +1786,8 @@ __webpack_require__.r(__webpack_exports__);
     sendMessage: function sendMessage() {
       this.$emit('messagesent', {
         user: this.user,
-        message: this.newMessage
+        message: this.newMessage,
+        thread_id: this.thread_id
       });
       this.newMessage = '';
     }
@@ -59554,7 +59555,8 @@ var app = new Vue({
     fetchMessages: function fetchMessages() {
       var _this2 = this;
 
-      axios.get('/messages').then(function (response) {
+      var thread_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+      axios.get('/messages/' + thread_id).then(function (response) {
         _this2.messages = response.data;
       });
     },

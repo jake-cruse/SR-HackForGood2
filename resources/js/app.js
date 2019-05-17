@@ -30,7 +30,8 @@ const app = new Vue({
 
     methods: {
         fetchMessages() {
-            axios.get('/messages').then(response => {
+            var thread_id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+            axios.get('/messages/' + thread_id).then(response => {
                 this.messages = response.data;
             });
         },
