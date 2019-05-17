@@ -47,9 +47,9 @@ class User extends Authenticatable
         return $this->belongsTo("App\Topic");   
     }
 
-    public function class()
+    public function classroom()
     {
-        return $this->belongsTo("App\Class");   
+        return $this->belongsTo("App\Classroom", "class_id");   
     }
 
     public function voteFor(Topic $topic)
