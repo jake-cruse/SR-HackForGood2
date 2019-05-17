@@ -77,5 +77,6 @@
             @include('partials/navigation')
         </main>
     </div>
+    @yield('add-js')
 </body>
 </html>

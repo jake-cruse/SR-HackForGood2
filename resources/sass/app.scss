@@ -7,6 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+#app {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 .chat {
     list-style: none;
     margin: 0;
