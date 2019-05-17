@@ -14,7 +14,7 @@ class ChatsController extends Controller
 		$this->middleware('auth');
 	}
 
-	public function index()
+	public function showChat()
 	{
 		return view('chat');
 	}

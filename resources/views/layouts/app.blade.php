@@ -74,6 +74,7 @@
 
         <main class="py-4">
             @yield('content')
+            @include('partials/navigation')
         </main>
     </div>
 </body>
