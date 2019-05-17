@@ -7,7 +7,7 @@
         <div class="col-md-8 col-md-offset-2">
            	<div class="vote-box">
 
-           		@if (Auth::user()->topic_id == NULL)
+           		@if ($user->topic_id == NULL)
            			{{-- Not voted yet --}}
        				<h1>Vote for a topic for the week</h1>
 	           		@foreach($topics as $topic)
@@ -19,7 +19,7 @@
            			{{-- Already voted so show graph --}}
            			<h1>Vote so far</h1>
            			@foreach($topics as $topic)
-						<div class="vote-count">{{ $topic->name }} - {{ $topic->getPercentageVotes() }}% ({{ $topic->getVotes() }} votes)</div>
+						<div class="vote-count">{{ $topic->name }} - {{ $topic->getPercentageVotes($user->classroom) }}% ({{ $topic->getVotes($user->classroom) }} votes)</div>
            			@endforeach
            		@endif
 

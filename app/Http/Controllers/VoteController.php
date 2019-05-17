@@ -13,7 +13,8 @@ class VoteController extends Controller
     public function showVote()
     {
     	return view('votes')->with([
-    		'topics' => Topic::all()
+    		'topics' => Topic::all(),
+            'user' => Auth::user()
     	]);
     }
 
