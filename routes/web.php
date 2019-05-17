@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/threads/', 'ChatsController@showThreads');
+Route::post('/threads/', 'ChatsController@doAddThread')->name('do-add-thread');
 Route::get('/chat/', 'ChatsController@showChat');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');

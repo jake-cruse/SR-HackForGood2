@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Message;
 use Illuminate\Support\Facades\Auth;
 use App\Events\MessageSent;
+use App\Thread;
 
 class ChatsController extends Controller
 {
@@ -17,6 +18,16 @@ class ChatsController extends Controller
 	public function showChat()
 	{
 		return view('chat');
+	}
+
+	public function showThreads()
+	{
+		return view('threads');
+	}
+
+	public function doAddThread(Request $request)
+	{
+		dd($request);
 	}
 
 	public function fetchMessages()
