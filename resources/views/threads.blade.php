@@ -8,10 +8,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Threads</div>
 
-                
+                <ul class="threads">
+                    @foreach($threads as $thread)
+                        <li><a href="{{ url('chat/' . $thread->id) }}">{{ $thread->name }}</a></li>
+                    @endforeach
+                </ul>
                 <div class="panel-footer">
                     <button>Create new thread</button>
-                    <form action="{{ route('do-add-thread') }}" class="create-thread hidden">
+                    <form action="{{ route('do-add-thread') }}" method="post" class="create-thread hidden">
+                        @csrf
                         <input type="text" name="name">
                         <input type="submit" value="create">
                     </form>

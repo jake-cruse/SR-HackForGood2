@@ -12,6 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 use App\User;
 use App\Message;
+use App\Thread;
 
 class MessageSent
 {
@@ -36,9 +37,10 @@ class MessageSent
      *
      * @return void
      */
-    public function __construct(User $user, Message $message)
+    public function __construct(User $user, Message $message, Thread $thread)
     {
         $this->user = $user;
+        $this->message = $message;
         $this->message = $message;
     }
 
