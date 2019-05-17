@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->belongsTo("App\Topic");   
     }
 
+    public function class()
+    {
+        return $this->belongsTo("App\Class");   
+    }
+
     public function voteFor(Topic $topic)
     {
         $this->topic_id = $topic->id;

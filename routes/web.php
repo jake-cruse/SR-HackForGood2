@@ -17,9 +17,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/threads/', 'ChatsController@showThreads');
-Route::get('/chat/', 'ChatsController@showChat');
+Route::get('/chat/', 'ChatsController@showChat')->name('chat');
 Route::get('messages', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 
-Route::get('/vote/', 'VoteController@showVote');
+Route::get('/vote/', 'VoteController@showVote')->name('vote');
 Route::get('/vote/{topic}', 'VoteController@doVote')->name('vote-for-topic');
+
+Route::get('/help/', 'HelpController@showHelp')->name('help');
+Route::get('/game/', 'GameController@showGame')->name('game');
+Route::get('/leaders/', 'LeadersController@showLeaders')->name('leaders');
